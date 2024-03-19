@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 
-id = "thalakratos5@gmail.com"
-password = "Zeusfatherkratos"
+id = ""
+password = ""
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach",True)
