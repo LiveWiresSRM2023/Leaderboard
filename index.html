@@ -72,45 +72,40 @@
             background-color: #ddd;
         }
     </style>
+
 </head>
 
 <body>
     <div class="container">
+        <div style="text-align: center;">
+            <img srcset="LiveWireslogopng.png, LiveWireslogojpg.jpg" alt="LiveWires_ logo" height="95px">
+        </div>
         <h1>Leaderboard</h1>
         <button id="loadButton" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">Load</button>
         <table id="leaderboardTable" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-            <!-- Table content will be dynamically added here -->
         </table>
     </div>
-
-    <script>
-        // Function to handle loading data
+    <script defer>
         function loadData() {
-            // Make a request to the server to trigger the Python script
-            fetch('/scrape') // Changed endpoint to match the Flask route
+            fetch('/scrape')
                 .then(response => response.json())
                 .then(data => {
-                    // Clear existing table content
                     document.getElementById('leaderboardTable').innerHTML = '';
 
-                    // Populate table with data from JSON response
                     data.forEach(entry => {
                         const row = document.createElement('tr');
-                        row.innerHTML = `<td>${entry.username}</td><td>${entry.score}</td>`; // Adjusted field names to match Python script
+                        row.innerHTML = `<td>${entry.username}</td><td>${entry.score}</td>`;
                         document.getElementById('leaderboardTable').appendChild(row);
                     });
                 })
                 .catch(error => console.error('Error loading data:', error));
         }
 
-        // Attach event listener to the load button
         document.getElementById('loadButton').addEventListener('click', function() {
             loadData();
-            // Change button text to "Reload" after first click
             this.textContent = 'Reload';
         });
 
-        // Automatically load data when the page loads
         window.onload = function() {
             loadData();
         };
