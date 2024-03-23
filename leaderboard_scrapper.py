@@ -85,8 +85,8 @@ def save_to_json(data, filename):
         json.dump(data, f, indent=4)
 
 def main():
-    username = 'lokeshwara2002@gmail.com'
-    password = 'momoruLO23#'
+    username = ''
+    password = ''
     
     driver = login(username, password)
     
