@@ -64,17 +64,19 @@ def scrape_leaderboard(driver, url, seen_usernames):
         print("Failed to scrape leaderboard: ",e)
 
 
-# Function to scrape usernames and scores from 10 pages
+# Function to scrape usernames and scores from 20 pages max
 def scrape_all_leaderboard(driver):
     all_user_scores = {}
     seen_usernames = set()
     
-    for page in range(1, 11):
+    for page in range(1, 21):
         url = f'https://www.hackerrank.com/leaderboard?filter=follows&filter_on=friends&page={page}&track=algorithms&type=practice'
         usernames, scores = scrape_leaderboard(driver, url, seen_usernames)
         
         for i in range(len(usernames)):
             all_user_scores[usernames[i]] = scores[i]
+        if len(usernames)<2:
+            break
     
     return all_user_scores
 
@@ -92,7 +94,7 @@ if driver:
     all_user_scores = scrape_all_leaderboard(driver)
     
     if all_user_scores:
-        sorted_user_scores = {k: v for k, v in sorted(all_user_scores.items(), key=lambda item: item[1], reverse=True)}
+        sorted_user_scores = {k: v for k, v in sorted(all_user_scores.items(), key=lambda item: float(item[1]), reverse=True)}
         print("Usernames and Scores from the leaderboard:")
         for username, score in sorted_user_scores.items():
             print(f"Username: {username}, Score: {score}")
