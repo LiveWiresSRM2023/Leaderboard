@@ -1,0 +1,94 @@
+@import url('http://fonts.googleapis.com/css?family=poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+body{
+    background: #031a0a;
+    min-height: 100vh;
+    overflow-x:hidden;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 100;
+
+}
+
+.glass {
+    position: absolute;
+    width: 1040px;
+    height: 800px;
+    background: rgba(255,255,255,.1);
+    box-shadow: 0 25px 45px rgba(0,0,0, .2);
+    border-radius: 50px;
+    border:2px solid rgbs(255,255,255,.5);
+    border-right:2px solid rgbs(255,255,255,.2);
+    border-bottom:2px solid rgbs(255,255,255,.2);
+    backdrop-filter: blur(10px);
+}
+
+
+.logo  {
+    font-style: 2em;
+    color: #12e70a;
+    pointer-events:none;
+    text-align: center;
+    margin-right: 270px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #34e311;
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.navigation a:hover {
+    background-color: #12de31;
+    color: #dce1df;
+}
+
+.LIVEWIRES{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    bottom:auto;
+}
+
+
+.LIVEWIRES img {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+.sec {
+    position: relative;
+    padding: 100px;
+    }
+
+    .sec h2  {
+        font-size: 3em;
+        color: #12ef2c;
+        margin-bottom: 10px;
+    }
+   
+    
+

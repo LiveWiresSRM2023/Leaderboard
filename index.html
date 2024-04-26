@@ -1,115 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type ="x-icon" href="lw22.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #4CAF50;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid #ddd;
-        }
-
-        th,
-        td {
-            padding: 15px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #ddd;
-        }
-    </style>
-
-</head>
-
+    <title>LIVEWIRES PRESSENTS</title>
+    <link rel="stylesheet" href="style.css">
+   
+    </head>
 <body>
-    <div class="container">
-        <div style="text-align: center;">
-            <img srcset="LiveWireslogopng.png, LiveWireslogojpg.jpg" alt="LiveWires_ logo" height="95px">
-        </div>
-        <h1>Leaderboard</h1>
-        <button id="loadButton" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">Load</button>
-        <table id="leaderboardTable" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+   
+    <header>
+        
+        <h2 class ="logo">CODEVOYAGE LEADERBOARD  2.0</h2>
+               </nav>
+    </header>
+    <section class="LIVEWIRES">
+       <img src="shine.png" id="shine">
+       
+      
+       
+       
+    </section>
+    <section class="sec">
+        <h2></h2>
+        <div class="glass"></div>
+
+       
+    </section>
+    
         </table>
-    </div>
-    <script defer>
-        function loadData() {
-            fetch('/scrape')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('leaderboardTable').innerHTML = '';
 
-                    data.forEach(entry => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `<td>${entry.username}</td><td>${entry.score}</td>`;
-                        document.getElementById('leaderboardTable').appendChild(row);
-                    });
-                })
-                .catch(error => console.error('Error loading data:', error));
-        }
+    </section>
 
-        document.getElementById('loadButton').addEventListener('click', function() {
-            loadData();
-            this.textContent = 'Reload';
-        });
-
-        window.onload = function() {
-            loadData();
-        };
-    </script>
-</body>
-
+    </main>
+    <script src="script.js"></script>
+    </body>
 </html>
