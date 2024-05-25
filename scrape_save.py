@@ -12,14 +12,20 @@ def login(username, password):
         driver = webdriver.Chrome()
         driver.get('https://www.hackerrank.com/auth/login')
         username_field = WebDriverWait(driver, 20).until(
-            EC.visibility_of_element_located((By.ID, "input-1"))
+            EC.visibility_of_element_located((By.NAME,"username"))
         )
         username_field.send_keys(username)
         password_field = WebDriverWait(driver, 20).until(
-            EC.visibility_of_element_located((By.ID, "input-2"))
+            EC.visibility_of_element_located((By.NAME,"password"))
         )
         password_field.send_keys(password)
-        password_field.send_keys(Keys.RETURN)
+        login_button=WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR,'button[data-hr-focus-item="private"]'))
+        )
+        login_button.click()
+
+
+        
         WebDriverWait(driver, 20).until(
             EC.url_contains("hackerrank.com/dashboard")
         )
