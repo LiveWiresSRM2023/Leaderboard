@@ -97,7 +97,7 @@ def scrape_all_leaderboard(driver):
 #Function to update data in Firebase        
 def firebase_upload(leaderboard_data):
     try:
-        credential=credentials.Certificate('credentials.json')
+        credential=credentials.Certificate('credentials.json') #Replace the file name with your Firebase credential file
         firebase_admin.initialize_app(credential,{'databaseURL':'https://certain-root-333610-default-rtdb.asia-southeast1.firebasedatabase.app/'})
         ref=db.reference('/')
         ref.set({})
